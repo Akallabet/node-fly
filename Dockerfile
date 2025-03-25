@@ -10,7 +10,7 @@ COPY package-lock.json ./
 COPY tsconfig.json ./
 
 # Install dependencies
-RUN npm ci
+RUN --mount=type=cache,target=/root/.npm npm install
 
 # Copy source code
 COPY . .
@@ -35,7 +35,7 @@ RUN npm ci --only=production
 COPY --from=build /app/dist ./dist
 
 # Expose the port the app runs on
-EXPOSE 8080
+EXPOSE 3000
 
 # Command to run the application
 CMD ["node", "dist/server.js"]

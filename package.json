@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Fastify server deployed to fly.io",
   "main": "dist/server.js",
-  "type": "module",
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",
